@@ -1,0 +1,32 @@
+# Don't publish build artifacts
+build/
+.dart_tool/
+
+# Don't publish example build files
+example/build/
+example/.dart_tool/
+example/.flutter-plugins
+example/.flutter-plugins-dependencies
+example/pubspec.lock
+
+# Don't publish IDE files
+.idea/
+.vscode/
+*.iml
+
+# Don't publish git files
+.git/
+.gitignore
+
+# Don't publish CI/CD files
+.github/
+
+# Don't publish testing artifacts
+coverage/
+test/.test_coverage.dart
+
+# Don't publish local development files
+*.swp
+*.swo
+*~
+.DS_Store

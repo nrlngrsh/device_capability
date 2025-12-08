@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.dart text
+*.gradle text
+*.kt text
+*.swift text
+*.yaml text
+*.yml text
+*.md text
+*.json text
