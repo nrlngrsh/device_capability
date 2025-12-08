@@ -1,3 +1,8 @@
+## 0.1.1
+
+- Code formatting improvements
+- Updated .gitignore
+
 ## 0.1.0
 
 **Initial Release**
