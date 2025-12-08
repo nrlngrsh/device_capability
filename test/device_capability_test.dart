@@ -15,7 +15,8 @@ void main() {
         platform: DevicePlatform.android,
         cpuCores: 2,
         totalRamBytes: (1.5 * 1024 * 1024 * 1024).toInt(), // 1.5 GB
-        usedRamBytes: (1.2 * 1024 * 1024 * 1024).toInt(), // 1.2 GB used (high pressure)
+        usedRamBytes: (1.2 * 1024 * 1024 * 1024)
+            .toInt(), // 1.2 GB used (high pressure)
         totalStorageBytes: 16 * 1024 * 1024 * 1024,
         freeStorageBytes: (1.5 * 1024 * 1024 * 1024).toInt(), // Only 1.5GB free
         thermalState: 1, // Moderate thermal
@@ -44,7 +45,10 @@ void main() {
 
       final deviceInfo = engine.processDeviceInfo(rawInfo);
 
-      expect(deviceInfo.performanceTier, anyOf(PerformanceTier.high, PerformanceTier.ultra));
+      expect(
+        deviceInfo.performanceTier,
+        anyOf(PerformanceTier.high, PerformanceTier.ultra),
+      );
       expect(deviceInfo.memoryTier, MemoryTier.high);
       expect(deviceInfo.storageTier, StorageTier.high);
       expect(deviceInfo.performanceScore, greaterThan(60.0));
@@ -104,11 +108,17 @@ void main() {
       final deviceInfo1 = engine.processDeviceInfo(rawInfo1);
       final deviceInfo2 = engine.processDeviceInfo(rawInfo2);
 
-      expect(deviceInfo2.performanceScore, lessThan(deviceInfo1.performanceScore));
+      expect(
+        deviceInfo2.performanceScore,
+        lessThan(deviceInfo1.performanceScore),
+      );
     });
 
     test('Custom config changes thresholds', () {
-      final customConfig = DeviceCapabilityConfig(mediumTierThreshold: 50.0, highTierThreshold: 75.0);
+      final customConfig = DeviceCapabilityConfig(
+        mediumTierThreshold: 50.0,
+        highTierThreshold: 75.0,
+      );
       final customEngine = PerformanceEngine(customConfig);
 
       final rawInfo = RawDeviceInfo(
@@ -125,7 +135,10 @@ void main() {
       final deviceInfo = customEngine.processDeviceInfo(rawInfo);
 
       // With higher thresholds, same device might be classified lower
-      expect(deviceInfo.performanceTier, anyOf(PerformanceTier.low, PerformanceTier.medium));
+      expect(
+        deviceInfo.performanceTier,
+        anyOf(PerformanceTier.low, PerformanceTier.medium),
+      );
     });
   });
 
@@ -137,7 +150,11 @@ void main() {
       expect(config.highTierThreshold, 60.0);
       expect(config.ultraTierThreshold, 80.0);
       expect(
-        config.ramWeight + config.cpuWeight + config.storageWeight + config.thermalWeight + config.powerModeWeight,
+        config.ramWeight +
+            config.cpuWeight +
+            config.storageWeight +
+            config.thermalWeight +
+            config.powerModeWeight,
         1.0,
       );
     });
@@ -173,7 +190,11 @@ void main() {
     });
 
     test('toMap serializes correctly', () {
-      const rawInfo = RawDeviceInfo(platform: DevicePlatform.ios, cpuCores: 6, totalRamBytes: 6442450944);
+      const rawInfo = RawDeviceInfo(
+        platform: DevicePlatform.ios,
+        cpuCores: 6,
+        totalRamBytes: 6442450944,
+      );
 
       final map = rawInfo.toMap();
 

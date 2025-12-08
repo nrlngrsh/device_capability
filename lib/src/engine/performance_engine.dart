@@ -134,7 +134,8 @@ class PerformanceEngine {
 
     final freeGB = info.freeStorageBytes! / (1024 * 1024 * 1024);
     final usageRatio = info.totalStorageBytes! > 0
-        ? (info.totalStorageBytes! - info.freeStorageBytes!) / info.totalStorageBytes!
+        ? (info.totalStorageBytes! - info.freeStorageBytes!) /
+              info.totalStorageBytes!
         : 0.5;
 
     // Score based on free space (0-0.7)

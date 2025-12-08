@@ -77,8 +77,10 @@ class DeviceCapabilityConfig {
       powerModeWeight: powerModeWeight ?? this.powerModeWeight,
       ramMediumThresholdGB: ramMediumThresholdGB ?? this.ramMediumThresholdGB,
       ramHighThresholdGB: ramHighThresholdGB ?? this.ramHighThresholdGB,
-      storageMediumThresholdGB: storageMediumThresholdGB ?? this.storageMediumThresholdGB,
-      storageHighThresholdGB: storageHighThresholdGB ?? this.storageHighThresholdGB,
+      storageMediumThresholdGB:
+          storageMediumThresholdGB ?? this.storageMediumThresholdGB,
+      storageHighThresholdGB:
+          storageHighThresholdGB ?? this.storageHighThresholdGB,
     );
   }
 }

@@ -57,7 +57,9 @@ extension DeviceCapabilityHelpers on DeviceCapability {
   /// On low-end devices or when thermal throttling occurs,
   /// reducing background work improves user experience.
   bool get shouldLimitBackgroundTasks {
-    return isLowEnd || isThermalThrottling || rawInfo.lowPowerModeEnabled == true;
+    return isLowEnd ||
+        isThermalThrottling ||
+        rawInfo.lowPowerModeEnabled == true;
   }
 
   /// Returns recommended number of simultaneous network requests.
@@ -113,7 +115,10 @@ extension DeviceCapabilityHelpers on DeviceCapability {
   /// - Reduce visual effects
   /// - Optimize rendering
   bool get shouldEnablePerformanceMode {
-    return isLowEnd || isThermalThrottling || isMemoryLimited || rawInfo.lowPowerModeEnabled == true;
+    return isLowEnd ||
+        isThermalThrottling ||
+        isMemoryLimited ||
+        rawInfo.lowPowerModeEnabled == true;
   }
 
   /// Returns true if the app should show a performance warning to the user.
@@ -160,6 +165,7 @@ extension DeviceCapabilityHelpers on DeviceCapability {
   ///
   /// This is an estimation based on overall performance tier.
   bool get hasGoodHardwareAcceleration {
-    return performanceTier == PerformanceTier.high || performanceTier == PerformanceTier.ultra;
+    return performanceTier == PerformanceTier.high ||
+        performanceTier == PerformanceTier.ultra;
   }
 }

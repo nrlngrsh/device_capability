@@ -65,7 +65,9 @@ class DeviceCapability {
       final rawInfo = await platform.getDeviceInfo();
 
       // Step 2: Process raw data and calculate scores/tiers
-      final engine = PerformanceEngine(config ?? const DeviceCapabilityConfig());
+      final engine = PerformanceEngine(
+        config ?? const DeviceCapabilityConfig(),
+      );
       _deviceInfo = engine.processDeviceInfo(rawInfo);
 
       _isInitialized = true;
@@ -183,7 +185,8 @@ class DeviceCapability {
   /// Returns true if thermal state is elevated (high or critical).
   bool get isThermalThrottling {
     _ensureInitialized();
-    return _deviceInfo!.thermalTier == ThermalTier.high || _deviceInfo!.thermalTier == ThermalTier.critical;
+    return _deviceInfo!.thermalTier == ThermalTier.high ||
+        _deviceInfo!.thermalTier == ThermalTier.critical;
   }
 
   /// Returns true if storage space is limited.
