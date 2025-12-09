@@ -1,3 +1,7 @@
+## 0.1.2
+
+- Added Swift Package Manager support for iOS
+
 ## 0.1.1
 
 - Code formatting improvements

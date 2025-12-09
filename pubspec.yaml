@@ -1,6 +1,6 @@
 name: device_capability
 description: Detect device performance capabilities and get optimization recommendations. Initialize once, use throughout your app session.
-version: 0.1.1
+version: 0.1.2
 homepage: https://github.com/nrlngrsh/device_capability
 repository: https://github.com/nrlngrsh/device_capability
 issue_tracker: https://github.com/nrlngrsh/device_capability/issues
